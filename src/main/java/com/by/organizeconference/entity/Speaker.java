@@ -28,7 +28,7 @@ public class Speaker {
     @Column(name="full_name")
     private String fullName;
     
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="speaker_detail_id")
     private SpeakerDetail speakerDetail;
     

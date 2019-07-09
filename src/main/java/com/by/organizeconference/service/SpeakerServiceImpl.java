@@ -2,7 +2,9 @@ package com.by.organizeconference.service;
 
 import com.by.organizeconference.dao.SpeakerRepository;
 import com.by.organizeconference.entity.Speaker;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,13 +29,17 @@ public class SpeakerServiceImpl implements SpeakerService {
     }
 
     @Override
-    public void save(Speaker speaker) {
-        speakerRepository.save(speaker);
+    public Speaker save(Speaker speaker) {
+        return speakerRepository.save(speaker);
     }
 
     @Override
-    public void deleteById(Long id) {
+    public Map<String, Long> deleteById(Long id) {
         speakerRepository.deleteById(id);
+        
+        Map<String, Long> response = new HashMap<>();
+        response.put("id", id);
+        return response;
     }
     
 }

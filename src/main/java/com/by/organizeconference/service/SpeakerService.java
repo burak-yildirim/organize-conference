@@ -2,6 +2,7 @@ package com.by.organizeconference.service;
 
 import com.by.organizeconference.entity.Speaker;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -13,8 +14,8 @@ public interface SpeakerService {
     
     public Speaker findById(Long id);
     
-    public void save(Speaker speaker);
+    public Speaker save(Speaker speaker);
     
-    public void deleteById(Long id);
+    public Map<String, Long> deleteById(Long id);
     
 }

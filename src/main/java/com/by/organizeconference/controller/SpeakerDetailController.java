@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,13 +36,13 @@ public class SpeakerDetailController {
     }
     
     @PostMapping("/speakerDetails")
-    public SpeakerDetail save(SpeakerDetail detail){
+    public SpeakerDetail save(@RequestBody SpeakerDetail detail){
         detail.setId(null);
         return detailService.save(detail);
     }
     
     @PutMapping("/speakerDetails")
-    public SpeakerDetail update(SpeakerDetail detail){
+    public SpeakerDetail update(@RequestBody SpeakerDetail detail){
         return detailService.save(detail);
     }
     

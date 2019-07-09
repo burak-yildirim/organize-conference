@@ -5,13 +5,17 @@ import com.by.organizeconference.entity.SpeakerDetail;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author burakY
  */
+@Service
 public class SpeakerDetailServiceImpl implements SpeakerDetailService {
     
+    @Autowired
     private SpeakerDetailRepository detailRepo;
 
     @Override

@@ -8,11 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author burakY
  */
+@Table(name = "topic")
 @Entity
 public class Topic {
     @Id
@@ -28,10 +30,10 @@ public class Topic {
     @JoinColumn(name = "speaker_id")
     private Speaker speaker;
     
-    @Column(name = "startTime")
+    @Column(name = "start_time")
     private String startTime;
     
-    @Column(name = "endTime")
+    @Column(name = "end_time")
     private String endTime;
 
     

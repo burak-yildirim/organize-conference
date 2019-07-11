@@ -1,5 +1,6 @@
 package com.by.organizeconference.entity;
 
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -31,6 +33,9 @@ public class Speaker {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="speaker_detail_id")
     private SpeakerDetail speakerDetail;
+    
+    @OneToMany(mappedBy = "speaker")
+    private List<Topic> topics;
     
     // @ManyToMany to Topic
 
@@ -58,6 +63,14 @@ public class Speaker {
         this.speakerDetail = speakerDetail;
     }
 
+    public List<Topic> getTopics() {
+        return topics;
+    }
+
+    public void setTopics(List<Topic> topics) {
+        this.topics = topics;
+    }
+    
     @Override
     public String toString() {
         return "Speaker{" + "id=" + id + ", fullName=" + fullName + ", speakerDetail=" + speakerDetail + '}';

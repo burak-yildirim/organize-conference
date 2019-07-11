@@ -25,7 +25,7 @@ public class SpeakerDetailServiceImpl implements SpeakerDetailService {
 
     @Override
     public SpeakerDetail findById(Long id) {
-        return detailRepo.findById(id).get();
+        return detailRepo.findById(id).orElseGet(SpeakerDetail::new);
     }
 
     @Override

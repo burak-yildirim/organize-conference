@@ -25,7 +25,7 @@ public class SpeakerServiceImpl implements SpeakerService {
 
     @Override
     public Speaker findById(Long id) {
-        return speakerRepository.findById(id).get();
+        return speakerRepository.findById(id).orElseGet(Speaker::new);
     }
 
     @Override

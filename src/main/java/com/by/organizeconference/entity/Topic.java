@@ -1,5 +1,6 @@
 package com.by.organizeconference.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,6 +23,7 @@ public class Topic {
     @Column(name = "title")
     private String title;
     
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "speaker_id")
     private Speaker speaker;

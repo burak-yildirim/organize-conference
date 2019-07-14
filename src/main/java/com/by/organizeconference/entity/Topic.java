@@ -35,7 +35,11 @@ public class Topic {
     
     @Column(name = "end_time")
     private String endTime;
-
+    
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "conference_id")
+    private Conference conference;
     
     public Long getId() {
         return id;

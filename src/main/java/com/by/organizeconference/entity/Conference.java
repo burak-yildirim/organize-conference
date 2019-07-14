@@ -2,6 +2,7 @@ package com.by.organizeconference.entity;
 
 import java.util.Date;
 import java.util.List;
+import static java.util.stream.Collectors.toList;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,6 +46,61 @@ public class Conference {
     
     @OneToMany(mappedBy = "conference")
     private List<Topic> topics;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
+
+    public List<Speaker> getSpeakers() {
+        return speakers;
+    }
+
+    public void setSpeakers(List<Speaker> speakers) {
+        this.speakers = speakers;
+    }
+
+    public List<Topic> getTopics() {
+        return topics;
+    }
+
+    public void setTopics(List<Topic> topics) {
+        this.topics = topics;
+    }
+
+    @Override
+    public String toString() {
+        List<String> speakerNames = speakers.stream().map(speaker -> speaker.getFullName()).collect(toList());
+        List<String> topicTitles = topics.stream().map(topic -> topic.getTitle()).collect(toList());
+        return "Conference{" + "id=" + id + ", title=" + title + ", startTime=" + startTime + ", endTime=" + endTime + ", speakers=" + speakerNames + ", topics=" + topicTitles + '}';
+    }
     
     
 }

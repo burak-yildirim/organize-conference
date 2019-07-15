@@ -1,5 +1,6 @@
 package com.by.organizeconference.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -34,11 +35,11 @@ public class Speaker {
     @JoinColumn(name="speaker_detail_id")
     private SpeakerDetail speakerDetail;
     
+    @JsonIgnore
     @OneToMany(mappedBy = "speaker")
     private List<Topic> topics;
     
-    // @ManyToMany to Topic
-
+    
     public Long getId() {
         return id;
     }

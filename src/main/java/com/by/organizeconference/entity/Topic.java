@@ -1,6 +1,7 @@
 package com.by.organizeconference.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.text.SimpleDateFormat;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- *
+ * 'startTime' and 'endTime' is at 'hh:mm' format
  * @author burakY
  */
 @Table(name = "topic")
@@ -70,7 +71,7 @@ public class Topic {
     }
 
     public void setStartTime(String startTime) {
-        this.startTime = startTime;
+        this.startTime = hourMinuteFormatter(startTime);
     }
 
     public String getEndTime() {
@@ -78,7 +79,7 @@ public class Topic {
     }
 
     public void setEndTime(String endTime) {
-        this.endTime = endTime;
+        this.endTime = hourMinuteFormatter(endTime);
     }
 
     @Override
@@ -86,5 +87,12 @@ public class Topic {
         return "Topic{" + "id=" + id + ", title=" + title + ", speaker=" + speaker + ", startTime=" + startTime + ", endTime=" + endTime + '}';
     }
     
-    
+    private String hourMinuteFormatter(String time){
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+        try {
+            return formatter.format(formatter.parse(time));
+        } catch (Exception e) { System.out.println(e); }
+        
+        return "00:00";
+    }
 }

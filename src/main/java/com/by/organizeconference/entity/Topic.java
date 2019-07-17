@@ -82,6 +82,14 @@ public class Topic {
         this.endTime = hourMinuteFormatter(endTime);
     }
 
+    public Conference getConference() {
+        return conference;
+    }
+
+    public void setConference(Conference conference) {
+        this.conference = conference;
+    }
+    
     @Override
     public String toString() {
         return "Topic{" + "id=" + id + ", title=" + title + ", speaker=" + speaker + ", startTime=" + startTime + ", endTime=" + endTime + '}';

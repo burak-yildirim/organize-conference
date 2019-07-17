@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- *
+ * 'E' for entity and 'D' for dto
  * @author burakY
  */
 @Component

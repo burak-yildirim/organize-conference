@@ -26,10 +26,10 @@ public class ConferenceDTO {
     private List<TopicDTO> topics;
     
     @JsonProperty
-    private Date startTime;
+    private Date startDate;
     
     @JsonProperty
-    private Date endTime;
+    private Date endDate;
 
     public Long getId() {
         return id;
@@ -55,20 +55,21 @@ public class ConferenceDTO {
         this.topics = topics;
     }
 
-    public Date getStartTime() {
-        return startTime;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    public Date getEndTime() {
-        return endTime;
+    public Date getEndDate() {
+        return endDate;
     }
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
+
     
 }

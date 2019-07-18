@@ -30,11 +30,11 @@ public class Conference {
     @Column(name = "title")
     private String title;
     
-    @Column(name = "start_time")
-    private Date startTime;
+    @Column(name = "start_date")
+    private Date startDate;
     
-    @Column(name = "end_time")
-    private Date endTime;
+    @Column(name = "end_date")
+    private Date endDate;
     
     @ManyToMany
     @JoinTable(
@@ -63,20 +63,20 @@ public class Conference {
         this.title = title;
     }
 
-    public Date getStartTime() {
-        return startTime;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    public Date getEndTime() {
-        return endTime;
+    public Date getEndDate() {
+        return endDate;
     }
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     public List<Speaker> getSpeakers() {
@@ -99,7 +99,7 @@ public class Conference {
     public String toString() {
         List<String> speakerNames = speakers.stream().map(speaker -> speaker.getFullName()).collect(toList());
         List<String> topicTitles = topics.stream().map(topic -> topic.getTitle()).collect(toList());
-        return "Conference{" + "id=" + id + ", title=" + title + ", startTime=" + startTime + ", endTime=" + endTime + ", speakers=" + speakerNames + ", topics=" + topicTitles + '}';
+        return "Conference{" + "id=" + id + ", title=" + title + ", startDate=" + startDate + ", endDate=" + endDate + ", speakers=" + speakerNames + ", topics=" + topicTitles + '}';
     }
     
     

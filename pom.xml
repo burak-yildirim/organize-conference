@@ -65,6 +65,29 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
+      
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.6.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>java</goal>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>com.by.organizeconference.OrganizeConferenceApplication</mainClass>
+          <executable>/usr/lib/jvm/java-8-openjdk-amd64/bin/java</executable>
+          <!-- optional -->
+<!--          <arguments>
+            <argument>-X</argument>
+            <argument>myproject:dist</argument>
+          </arguments>-->
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 

@@ -3,10 +3,11 @@ package com.by.organizeconference.controller;
 import com.by.organizeconference.dto.SpeakerDTO;
 import com.by.organizeconference.entity.Speaker;
 import com.by.organizeconference.service.SpeakerService;
+import com.by.organizeconference.utility.Merger;
+import com.remondis.remap.Mapper;
 import java.util.List;
 import java.util.Map;
 import static java.util.stream.Collectors.toList;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,25 +29,23 @@ public class SpeakerController {
     @Autowired
     private SpeakerService speakerService;
     
-    @Autowired 
-    private ModelMapper modelMapper;
+    @Autowired
+    private Merger merger;
     
-    private SpeakerDTO speakerEntityToDTO(Speaker speaker){
-        return modelMapper.map(speaker, SpeakerDTO.class);
-    }
+    @Autowired
+    private Mapper<Speaker, SpeakerDTO> speakerEDMapper;
     
-    private Speaker speakerDTOToEntity(SpeakerDTO speakerDTO){
-        return modelMapper.map(speakerDTO, Speaker.class);
-    }
+    @Autowired
+    private Mapper<SpeakerDTO, Speaker> speakerDEMapper;
 
     @GetMapping("/speakers")
     public List<SpeakerDTO> findAll(){
-        return speakerService.findAll().stream().map(this::speakerEntityToDTO).collect(toList());
+        return speakerService.findAll().stream().map(speakerEDMapper::map).collect(toList());
     }
     
     @GetMapping("/speakers/{id}")
     public SpeakerDTO findById(@PathVariable Long id){
-        return speakerEntityToDTO(speakerService.findById(id));
+        return speakerEDMapper.map(speakerService.findById(id));
     }
     
     @PostMapping("/speakers")

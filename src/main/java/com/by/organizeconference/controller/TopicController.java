@@ -1,21 +1,15 @@
 package com.by.organizeconference.controller;
 
-import com.by.organizeconference.converter.MmConverter;
-import com.by.organizeconference.converter.OldConverter;
 import com.by.organizeconference.dto.TopicDTO;
 import com.by.organizeconference.entity.Topic;
 import static com.by.organizeconference.utility.Piper.pipe;
 import com.by.organizeconference.service.TopicService;
-import static com.by.organizeconference.utility.MapToObject.mapToObject;
 import com.by.organizeconference.utility.Merger;
 import com.remondis.remap.Mapper;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import static java.util.stream.Collectors.toList;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;

@@ -1,6 +1,5 @@
 package com.by.organizeconference.controller;
 
-import com.by.organizeconference.converter.OldConverter;
 import com.by.organizeconference.dto.ConferenceDTO;
 import com.by.organizeconference.entity.Conference;
 import static com.by.organizeconference.utility.Piper.pipe;

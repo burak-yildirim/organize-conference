@@ -1,7 +1,6 @@
 package com.by.organizeconference.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List;
 
 /**
  * 'startTime' and 'endTime' is at 'hh:mm' format
@@ -23,6 +22,9 @@ public class TopicDTO {
     
     @JsonProperty
     private String endTime;
+    
+    @JsonProperty
+    private Long conferenceId;
     
     public Long getId() {
         return id;
@@ -47,7 +49,7 @@ public class TopicDTO {
     public void setSpeaker(SpeakerDTO speaker) {
         this.speaker = speaker;
     }
-
+    
     public String getStartTime() {
         return startTime;
     }
@@ -62,6 +64,19 @@ public class TopicDTO {
 
     public void setEndTime(String endTime) {
         this.endTime = endTime;
+    }
+
+    public Long getConferenceId() {
+        return conferenceId;
+    }
+
+    public void setConferenceId(Long conferenceId) {
+        this.conferenceId = conferenceId;
+    }
+
+    @Override
+    public String toString() {
+        return "TopicDTO@" + hashCode() +"{" + "id=" + id + ", title=" + title + ", speaker=" + speaker + ", startTime=\"" + startTime + "\", endTime=\"" + endTime + "\", conferenceId=" + conferenceId + '}';
     }
     
 }

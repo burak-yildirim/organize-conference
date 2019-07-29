@@ -80,7 +80,7 @@ public class SpeakerDetail {
 
     @Override
     public String toString() {
-        return "SpeakerDetail{" + "id=" + id + ", country=" + country + ", email=" + email + ", about=" + about + ", speaker=" + speaker + '}';
+        return "SpeakerDetail{" + "id=" + id + ", country=" + country + ", email=" + email + ", about=" + about + ", speakerId=" + speaker.getId() + '}';
     }
     
 

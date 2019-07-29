@@ -99,8 +99,8 @@ public class Topic {
         SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
         try {
             return formatter.format(formatter.parse(time));
-        } catch (Exception e) { System.out.println(e); }
+        } catch (Exception e) { e.printStackTrace(); }
         
-        return "00:00";
+        return null;
     }
 }

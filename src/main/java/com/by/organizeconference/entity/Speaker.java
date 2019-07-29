@@ -61,6 +61,10 @@ public class Speaker {
     }
 
     public void setSpeakerDetail(SpeakerDetail speakerDetail) {
+        // This prevents creating many tables on updates
+        if(this.speakerDetail.getId() != null)
+            speakerDetail.setId(this.speakerDetail.getId());
+        
         this.speakerDetail = speakerDetail;
     }
 

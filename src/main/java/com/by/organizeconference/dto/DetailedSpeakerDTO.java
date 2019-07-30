@@ -81,7 +81,7 @@ public class DetailedSpeakerDTO {
     public String toString() {
         List<Map<String, Long>> printableTopics = topics.stream()
                 .map(this::topicToMap).collect(Collectors.toList());
-        return "DetailedSpeakerDTO{" + "id=" + id + ", fullName=" + fullName + ", topics=" + printableTopics + ", country=" + country + ", email=" + email + ", about=" + about + '}';
+        return "DetailedSpeakerDTO{" + "id=" + id + ", fullName=" + fullName + ", topics=" + topics + ", country=" + country + ", email=" + email + ", about=" + about + '}';
     }
     
 }

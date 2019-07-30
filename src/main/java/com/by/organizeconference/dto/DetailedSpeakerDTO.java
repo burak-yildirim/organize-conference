@@ -71,16 +71,8 @@ public class DetailedSpeakerDTO {
         this.about = about;
     }
     
-    private Map<String, Long> topicToMap(TopicDTO topicDTO){
-        Map<String, Long> ids = new HashMap<>();
-        ids.put("id", topicDTO.getId());
-        return ids;
-    }
-
     @Override
     public String toString() {
-        List<Map<String, Long>> printableTopics = topics.stream()
-                .map(this::topicToMap).collect(Collectors.toList());
         return "DetailedSpeakerDTO{" + "id=" + id + ", fullName=" + fullName + ", topics=" + topics + ", country=" + country + ", email=" + email + ", about=" + about + '}';
     }
     

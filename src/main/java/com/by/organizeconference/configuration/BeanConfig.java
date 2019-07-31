@@ -68,8 +68,8 @@ public class BeanConfig {
     public Mapper<Conference, ConferenceDTO> conferenceEDMapper( Mapper<Topic, TopicDTO> topicEDMapper){
         return Mapping.from(Conference.class)
                 .to(ConferenceDTO.class)
-                .omitInSource(Conference::getSpeakers)
                 .useMapper(topicEDMapper)
+                .omitInSource(Conference::getSpeakers)
                 .mapper();
     }
     
@@ -77,8 +77,8 @@ public class BeanConfig {
     public Mapper<ConferenceDTO, Conference> conferenceDEMapper(Mapper<TopicDTO, Topic> topicDEMapper){
         return Mapping.from(ConferenceDTO.class)
                 .to(Conference.class)
-                .omitInDestination(Conference::getSpeakers)
                 .useMapper(topicDEMapper)
+                .omitInDestination(Conference::getSpeakers)
                 .mapper();
     }
     

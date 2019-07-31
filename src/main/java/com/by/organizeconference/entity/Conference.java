@@ -107,8 +107,8 @@ public class Conference {
 
     @Override
     public String toString() {
-        List<String> speakerNames = speakers.stream().map(speaker -> speaker.getFullName()).collect(toList());
-        List<String> topicTitles = topics.stream().map(topic -> topic.getTitle()).collect(toList());
+        List<String> speakerNames = speakers != null ? speakers.stream().map(speaker -> speaker.getFullName()).collect(toList()) : null;
+        List<String> topicTitles = topics!= null ? topics.stream().map(topic -> topic.getTitle()).collect(toList()) : null;
         return "Conference{" + "id=" + id + ", title=" + title + ", startDate=" + startDate + ", endDate=" + endDate + ", speakers=" + speakerNames + ", topics=" + topicTitles + '}';
     }
     

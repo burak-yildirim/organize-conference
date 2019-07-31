@@ -1,7 +1,9 @@
 package com.by.organizeconference.entity;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import static java.util.stream.Collectors.toList;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -92,6 +94,14 @@ public class Conference {
     }
 
     public void setTopics(List<Topic> topics) {
+        Set<Speaker> ss = new HashSet<>();
+        
+        if(this.speakers != null)
+            ss.addAll(this.speakers);
+        topics.forEach(t -> ss.add(t.getSpeaker()));
+        
+        this.speakers = ss.stream().collect(toList());
+        
         this.topics = topics;
     }
 

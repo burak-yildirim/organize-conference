@@ -103,7 +103,8 @@ I did not invest my time on those features.
   - recieve the object via request
   - pull the object with the same id from database
   - write recieved object's non-null properties onto object from database by _BeanUtils_ of _Spring_
-  - persist the updated object <br/>
+  - persist the updated object 
+
 This is not the best solution for partial update since it has concurrency problems, for example after you pulled the object 
 from database it might be updated by someone else before you persist so the update will be lost. However, this probably would 
 not be a problem even if we would use this project as product.
